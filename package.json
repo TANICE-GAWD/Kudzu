@@ -1,0 +1,33 @@
+{
+  "name": "kudzu",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "A self-spreading crawler that ingests, grades, and prices the API internet.",
+  "bin": {
+    "kudzu": "src/cli.ts"
+  },
+  "scripts": {
+    "kudzu": "tsx src/cli.ts",
+    "mcp": "tsx src/mcp.ts",
+    "seller": "tsx src/seller.ts",
+    "demo": "tsx src/demo.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.110.0",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@readme/openapi-parser": "^4.1.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "viem": "^2.21.0",
+    "x402-express": "^1.2.0",
+    "x402-fetch": "^0.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
