@@ -10,11 +10,11 @@
   "scripts": {
     "kudzu": "tsx src/cli.ts",
     "mcp": "tsx src/mcp.ts",
+    "crawl": "tsx src/crawl.ts",
     "seller": "tsx src/seller.ts",
     "demo": "tsx src/demo.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.110.0",
     "@modelcontextprotocol/sdk": "^1.12.0",
     "@readme/openapi-parser": "^4.1.0",
     "dotenv": "^17.4.2",
