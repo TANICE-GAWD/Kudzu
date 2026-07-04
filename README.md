@@ -8,19 +8,19 @@ Give it a URL. It returns a live, callable, graded, payable MCP tool. No enginee
 ```mermaid
 flowchart LR
   URL[API URL] --> ING{OpenAPI spec?}
-  ING -- yes --> SPEC[ingest: parse spec]
-  ING -- no --> DOCS[ingestDocs: LLM reads HTML]
+  ING -->|yes| SPEC[ingest parse spec]
+  ING -->|no| DOCS[ingestDocs LLM reads HTML]
   SPEC --> SKILL[Skill]
   DOCS --> SKILL
-  SKILL --> GRADE[grade: real HTTP call]
+  SKILL --> GRADE[grade real HTTP call]
   GRADE --> PAY{402?}
-  PAY -- yes, --pay --> X402[sign + settle on-chain]
-  PAY -- no --> CHECK
+  PAY -->|pay flag set| X402[sign and settle on-chain]
+  PAY -->|free| CHECK
   X402 --> CHECK{callable and parses?}
-  CHECK -- yes --> VERIFIED[verified]
-  CHECK -- no --> QUAR[quarantined, never served]
-  VERIFIED --> CAT[(Catalog: JSON files)]
-  CAT --> MCP[MCP tools in Claude/Cursor]
+  CHECK -->|yes| VERIFIED[verified]
+  CHECK -->|no| QUAR[quarantined never served]
+  VERIFIED --> CAT[(Catalog JSON files)]
+  CAT --> MCP[MCP tools in Claude and Cursor]
 ```
 
 Three phases: ingestion, verification and grading, exposure and monetization.
@@ -30,17 +30,17 @@ Three phases: ingestion, verification and grading, exposure and monetization.
 ```mermaid
 graph TD
   subgraph Entrypoints
-    CLI[cli.ts: single URL]
-    CRAWL[crawl.ts: batch from seed.txt]
-    MCPS[mcp.ts: serve verified skills]
-    SELL[seller.ts: reference x402 API]
+    CLI[cli.ts single URL]
+    CRAWL[crawl.ts batch from seed.txt]
+    MCPS[mcp.ts serve verified skills]
+    SELL[seller.ts reference x402 API]
   end
-  subgraph Core[core.ts + integrate.ts]
+  subgraph Core[core.ts and integrate.ts]
     INT[integrate]
     IN[ingest]
-    DO[ingestDocs, docs.ts]
+    DO[ingestDocs in docs.ts]
     GR[grade]
-    STORE[save/load catalog]
+    STORE[save and load catalog]
   end
   CLI --> INT
   CRAWL --> INT
@@ -49,7 +49,7 @@ graph TD
   INT --> GR
   GR --> STORE
   MCPS --> STORE
-  SELL -. 402 target for --pay .-> GR
+  SELL -.->|402 target for pay flag| GR
 ```
 
 ## Grade sequence
