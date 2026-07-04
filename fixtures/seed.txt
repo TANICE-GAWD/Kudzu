@@ -1,0 +1,10 @@
+# APIs Orthogonal doesn't list  Kudzu integrates them from their docs alone.
+# One URL per line. Used by `npm run crawl` when no URLs are passed.
+https://frankfurter.dev/
+https://agify.io/
+https://nationalize.io/
+https://www.ipify.org/
+https://pokeapi.co/
+https://www.fruityvice.com/
+https://open-meteo.com/en/docs
+https://api.sampleapis.com/coffee/hot

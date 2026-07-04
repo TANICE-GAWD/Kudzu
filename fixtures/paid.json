@@ -1,0 +1,18 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Kudzu Paid Rates (x402)", "version": "1.0.0" },
+  "servers": [{ "url": "http://localhost:4021" }],
+  "paths": {
+    "/rates": {
+      "get": {
+        "summary": "FX rate behind an x402 paywall",
+        "responses": {
+          "200": {
+            "description": "rate",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Frankfurter FX", "version": "1.0.0" },
+  "servers": [{ "url": "https://api.frankfurter.dev" }],
+  "paths": {
+    "/v1/latest": {
+      "get": {
+        "summary": "Latest exchange rates",
+        "parameters": [
+          { "name": "base", "in": "query", "required": false, "schema": { "type": "string", "example": "USD" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "rates",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    }
+  }
+}

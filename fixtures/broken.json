@@ -1,0 +1,18 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Dead API", "version": "1.0.0" },
+  "servers": [{ "url": "https://nope.kudzu.invalid" }],
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "an endpoint that does not answer",
+        "responses": {
+          "200": {
+            "description": "never",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    }
+  }
+}
