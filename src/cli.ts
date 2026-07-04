@@ -13,11 +13,14 @@ async function main() {
     process.exit(1);
   }
 
-  const payOpts =
-    pay && process.env.KUDZU_PRIVATE_KEY
-      ? { privateKey: process.env.KUDZU_PRIVATE_KEY, network: process.env.KUDZU_NETWORK ?? "base-sepolia" }
-      : undefined;
-  if (pay && !payOpts) process.stderr.write("--pay set but KUDZU_PRIVATE_KEY missing; grading without payment.\n");
+  if (pay && !process.env.KUDZU_PRIVATE_KEY) {
+    
+    console.error("--pay requires KUDZU_PRIVATE_KEY (Base Sepolia). Set it in .env and retry.");
+    process.exit(1);
+  }
+  const payOpts = pay
+    ? { privateKey: process.env.KUDZU_PRIVATE_KEY!, network: process.env.KUDZU_NETWORK ?? "base-sepolia" }
+    : undefined;
 
   process.stderr.write(`integrating ${url} …\n`);
   const skill = await integrate(url, payOpts);
