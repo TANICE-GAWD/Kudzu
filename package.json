@@ -11,6 +11,7 @@
     "kudzu": "tsx src/cli.ts",
     "mcp": "tsx src/mcp.ts",
     "crawl": "tsx src/crawl.ts",
+    "run-catalog": "tsx src/run.ts",
     "seller": "tsx src/seller.ts",
     "demo": "tsx src/demo.ts"
   },
