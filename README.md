@@ -79,6 +79,7 @@ npm install
 npm run kudzu -- https://petstore3.swagger.io/api/v3/openapi.json   # spec URL
 npm run kudzu -- https://www.thecocktaildb.com/api.php              # docs page (LLM fallback)
 npm run crawl                                                       # batch from fixtures/seed.txt
+npm run run-catalog                                                # call every verified skill in catalog/ live
 npm run mcp                                                         # serve verified skills over MCP (stdio)
 npm run demo                                                        # assert-based self-check
 ```
